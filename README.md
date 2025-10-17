@@ -162,6 +162,14 @@ jupyter notebook notebooks/
 - Anomaly scores
 - Risk severity levels
 
+## 📽️ Demo Preview
+
+See the demo video below showing how the Tableau dashboard visualizes fraud rates by transaction type and region:
+
+https://github.com/Gkoala333/paysim_fraud_analysis/blob/main/first_5_row_example_fraud_rate_dashboard.mp4?raw=true
+
+(If the video doesn’t load automatically, click the link above to watch it.)
+
 
 🔗 **Live Dashboard:**
 [PaySim Fraud Analysis Dashboard (Tableau Public)](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
