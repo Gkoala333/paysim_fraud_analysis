@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data files (except sample)
+data/processed/*
+data/tableau_exports/*
+!data/processed/.gitkeep
+!data/tableau_exports/.gitkeep
+*.pkl
+*.pickle
+*.parquet
+
+# Outputs
+outputs/figures/*
+outputs/reports/*
+outputs/logs/*
+!outputs/figures/.gitkeep
+!outputs/reports/.gitkeep
+!outputs/logs/.gitkeep
+
+# Tableau
+*.twb~
+*.twbx~
+*.tds~
+*.tdsx~
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.hypothesis/
+
+# Documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.cache
+
+# Large data files (keep raw data in Git LFS or external storage)
+# Uncomment if using Git LFS
+# *.csv filter=lfs diff=lfs merge=lfs -text

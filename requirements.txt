@@ -1,0 +1,63 @@
+# Core Data Processing
+pandas==2.1.4
+numpy==1.26.2
+
+# Data Analysis
+scipy==1.11.4
+scikit-learn==1.3.2
+statsmodels==0.14.1
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.18.0
+
+# Data Validation
+great-expectations==0.18.8
+
+# Performance Optimization
+pyarrow==14.0.2
+fastparquet==2023.10.1
+dask==2023.12.1
+
+# Jupyter
+jupyter==1.0.0
+ipykernel==6.27.1
+ipywidgets==8.1.1
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Logging
+loguru==0.7.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Code Quality
+black==23.12.1
+flake8==7.0.0
+isort==5.13.2
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+
+# Progress Bars
+tqdm==4.66.1
+
+# Date/Time
+python-dateutil==2.8.2
+
+# Export/Import
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# Network Analysis (for transaction networks)
+networkx==3.2.1
+
+# Utilities
+tabulate==0.9.0
+colorama==0.4.6
