@@ -1,5 +1,4 @@
-# PaySim Fraud Detection Dashboard Project
-
+# PaySim Fraud Detection Analysis
 ## 🎯 Project Overview
 
 This project provides a comprehensive fraud detection analysis system for financial transactions using the PaySim dataset. It automates data cleaning, performs statistical analysis, and creates interactive Tableau dashboards to identify fraud patterns and anomalies.
@@ -163,31 +162,181 @@ jupyter notebook notebooks/
 - Anomaly scores
 - Risk severity levels
 
-## 📊 Tableau Dashboards
 
-### Dashboard 1: Transaction Overview
-- Total transaction volume trends
-- Transaction type distribution
-- Amount distributions
-- Hourly transaction patterns
+🔗 **Live Dashboard:**
+[PaySim Fraud Analysis Dashboard (Tableau Public)](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-### Dashboard 2: Fraud Detection
-- Fraud ratio by transaction type
-- High-risk transaction categories
-- Fraud amount vs. legitimate amount
-- Detection efficiency metrics
+---
 
-### Dashboard 3: Anomaly Detection
-- Real-time anomaly alerts
-- Suspicious pattern identification
-- Customer behavior anomalies
-- Network graph visualization
+## 📁 Tableau dashboard Overview
 
-### Dashboard 4: Executive Summary
-- KPI scorecard
-- Fraud prevention impact
-- Cost-benefit analysis
-- Trend analysis
+The pipeline:
+
+1. Loads and validates the PaySim transaction dataset.
+2. Cleans and enriches data (adds customer region info).
+3. Aggregates transaction-level fraud statistics:
+
+   * **By Transaction Type**
+   * **By Customer Region**
+4. Exports results to CSV for Tableau visualization.
+5. Logs the entire process for reproducibility.
+
+---
+
+## 🧠 Example Input (paysim_fraud.txt / CSV)
+
+| step | type     | amount  | nameOrig    | oldbalanceOrg | newbalanceOrig | nameDest    | oldbalanceDest | newbalanceDest | isFraud | isFlaggedFraud |
+| ---- | -------- | ------- | ----------- | ------------- | -------------- | ----------- | -------------- | -------------- | ------- | -------------- |
+| 1    | PAYMENT  | 9839.64 | C1231006815 | 170136        | 160296.36      | M1979787155 | 0              | 0              | 0       | 0              |
+| 1    | TRANSFER | 181.00  | C1305486145 | 181           | 0              | C553264065  | 0              | 0              | 1       | 0              |
+| 1    | CASH_OUT | 181.00  | C840083671  | 181           | 0              | C38997010   | 21182          | 0              | 1       | 0              |
+
+---
+
+## 🛠️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/paysim_fraud_dashboard.git
+cd paysim_fraud_dashboard
+```
+
+### 2️⃣ Install Python dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn pyyaml loguru scipy
+```
+
+---
+
+## 📦 Project Structure
+
+```
+paysim_fraud_dashboard/
+│
+├── data/
+│   ├── processed/
+│   │   └── cleaned_transactions.csv       ← your input file
+│   └── tableau_exports/                   ← script output (for Tableau)
+│
+├── outputs/
+│   └── logs/
+│       └── export_log.txt                 ← log of each pipeline run
+│
+├── tableau_export_pipeline.py             ← main export script
+└── README.md
+```
+
+---
+
+## 🚀 How to Run
+
+### Step 1. Place your cleaned PaySim file
+
+Put your cleaned dataset (e.g. `paysim_fraud.txt` or `.csv`) in:
+
+```
+data/processed/cleaned_transactions.csv
+```
+
+### Step 2. Run the export script
+
+```bash
+python tableau_export_pipeline.py
+```
+
+### Step 3. Verify output
+
+After running, check:
+
+```
+data/tableau_exports/
+├── fraud_summary_by_type.csv
+└── regional_fraud_summary.csv
+```
+
+and a log file in:
+
+```
+outputs/logs/export_log.txt
+```
+
+---
+
+## 📊 Tableau Visualization Guide
+
+Once exports are generated:
+
+1. Open **Tableau Desktop** or **Tableau Public**.
+2. Go to **Connect → Text File**.
+3. Load both CSVs:
+
+   * `fraud_summary_by_type.csv`
+   * `regional_fraud_summary.csv`
+4. Build dashboards such as:
+
+   * Fraud Rate by Transaction Type (Bar)
+   * Regional Fraud Heatmap (Symbol Map)
+   * Fraud Rate vs Amount (Bubble Chart)
+   * Fraud Trend (Line Chart)
+   * Fraud Share by Type (Pie)
+
+💡 You can also explore the live version here:
+👉 [View Dashboard](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+---
+
+## 🧾 Log Output Example
+
+```
+[2025-10-15 22:10:32] TABLEAU EXPORT PIPELINE - STARTED
+✓ Directory verified: data/tableau_exports
+✓ Directory verified: outputs/logs
+✓ Successfully loaded 1,000,000 transactions
+✓ Created 10 unique regions
+✓ Fraud summary by type created:
+  TRANSFER     | Total:  123,456 | Fraud:  2,345 | Rate: 1.90% | Avg: $12,345.67
+  CASH_OUT     | Total:   98,765 | Fraud:  1,234 | Rate: 1.25% | Avg: $10,987.65
+✓ Saved: fraud_summary_by_type.csv (6 rows, 1.20 KB)
+✓ Saved: regional_fraud_summary.csv (10 rows, 0.80 KB)
+✓ Ready for Tableau import
+```
+
+---
+
+## 🧠 Key Python Functions
+
+| Function                          | Purpose                               |
+| --------------------------------- | ------------------------------------- |
+| `setup_directories()`             | Create output folders if missing      |
+| `load_cleaned_data()`             | Load and validate transaction data    |
+| `prepare_data_for_aggregation()`  | Add region column and check structure |
+| `create_fraud_summary_by_type()`  | Aggregate fraud by transaction type   |
+| `create_regional_fraud_summary()` | Aggregate fraud by customer region    |
+| `save_export()`                   | Save output CSVs for Tableau          |
+| `generate_export_summary()`       | Summarize results in console and logs |
+
+---
+
+## 🧩 Example Exports
+
+**fraud_summary_by_type.csv**
+
+| transaction_type | total_txns | fraud_txns | avg_amount | fraud_rate |
+| ---------------- | ---------- | ---------- | ---------- | ---------- |
+| TRANSFER         | 123456     | 2345       | 12345.67   | 1.90       |
+| CASH_OUT         | 98765      | 1234       | 10987.65   | 1.25       |
+
+**regional_fraud_summary.csv**
+
+| region   | total_txns | fraud_txns | avg_amount | fraud_rate |
+| -------- | ---------- | ---------- | ---------- | ---------- |
+| REGION_1 | 50000      | 800        | 11890.23   | 1.60       |
+| REGION_2 | 45000      | 700        | 10456.78   | 1.55       |
+
+---
+
 
 ## 🧪 Testing
 
@@ -266,16 +415,6 @@ tableau:
 
 This project is licensed under the MIT License.
 
-## 👥 Authors
-
-- Data Science Team
-- Financial Analytics Division
-
-## 📞 Support
-
-For issues and questions:
-- Create an issue on GitHub
-- Email: support@fraud-detection.com
 
 ## 🔗 Related Resources
 
@@ -283,9 +422,21 @@ For issues and questions:
 - [Pandas Documentation](https://pandas.pydata.org/)
 - [Fraud Detection Best Practices](https://www.fraud-detection.com/best-practices)
 
+
+## 🧩 Author
+
+**Gigi Gao**
+Data Analyst | Business Analytics | Tableau | SQL | Python
+
+📧 [gigishan@bu.edu](mailto:gigishan@bu.edu)
+📊 [LinkedIn](https://linkedin.com/in/shangao)
+🖥️ Tableau: [PaySim Fraud Dashboard](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+
+
 ## 📅 Changelog
 
-### Version 1.0.0 (2024)
+### Version 1.0.0 (2025)
 - Initial release
 - Core data processing pipeline
 - Statistical analysis modules
@@ -294,5 +445,5 @@ For issues and questions:
 
 ---
 
-**Last Updated**: 2024  
+**Last Updated**: 10/2025  
 **Project Status**: Active Development
