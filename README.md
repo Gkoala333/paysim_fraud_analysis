@@ -429,7 +429,7 @@ This project is licensed under the MIT License.
 Data Analyst | Business Analytics | Tableau | SQL | Python
 
 📧 [gigishan@bu.edu](mailto:gigishan@bu.edu)
-📊 [LinkedIn](https://linkedin.com/in/shangao)
+📊 [LinkedIn](https://linkedin.com/in/gigishanbu)
 🖥️ Tableau: [PaySim Fraud Dashboard](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
