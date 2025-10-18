@@ -164,7 +164,7 @@ jupyter notebook notebooks/
 
 ## 📽️ Demo Preview
 
-See the demo below showing how the Tableau dashboard visualizes fraud rates by transaction type and region:
+See the demo below showing how the dashboard visualizes fraud rates by transaction type and region:
 
 ![Demo GIF](first_5_row_example_fraud_rate_dashboard.gif)
 
@@ -172,7 +172,7 @@ See the demo below showing how the Tableau dashboard visualizes fraud rates by t
 
 
 
-🔗 **Live Dashboard:**
+🔗 **Live Tableau Dashboard:**
 [PaySim Fraud Analysis Dashboard (Tableau Public)](https://public.tableau.com/views/PaySimFraudAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
