@@ -14,7 +14,7 @@ This project provides a comprehensive fraud detection analysis system for financ
 
 **Dataset**: PaySim Financial Transaction Data  
 **Source**: `data/paysim_fraud.csv` 
-- [Synthetic Financial Datasets For Fraud Detection](https://https://www.kaggle.com/datasets/ealaxi/paysim1/)
+- [Synthetic Financial Datasets For Fraud Detection](https://www.kaggle.com/datasets/ealaxi/paysim1/)
 
 **Records**: 6.3+ million transactions  
 **Features**: 11 columns including transaction type, amount, balances, and fraud indicators
